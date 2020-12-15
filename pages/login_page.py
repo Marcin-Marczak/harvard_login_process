@@ -20,12 +20,6 @@ class LoginPage:
         self.driver.find_element(*self.password_input).send_keys(password)
         self.driver.find_element(*self.login_button).click()
 
-    def logout(self):
-        self.driver.find_element(*self.logout_link).click()
-
-    def is_logout_link_displayed(self):
-        return self.driver.find_element(*self.logout_link).is_displayed()
-
     def is_login_link_displayed(self):
         return self.driver.find_element(*self.login_link).is_displayed()
 
