@@ -10,7 +10,6 @@ class LoginPage:
         self.password_input = (By.ID, "password")
         self.login_button = (By.XPATH, "//input[@value='Log In']")
         self.login_link = (By.LINK_TEXT, "Log In")
-        self.logout_link = (By.LINK_TEXT, "Logout")
         self.error_message_text = (By.XPATH, "//div[@class='msg-error']")
 
     def open_page(self):

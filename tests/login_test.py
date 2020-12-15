@@ -3,6 +3,7 @@ import pytest
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from pages.login_page import LoginPage
+from pages.my_account_page import MyAccountPage
 from faker import Faker
 
 fake = Faker("en")
@@ -16,8 +17,9 @@ class TestLogIn:
         log_in.open_page()
         log_in.login(valid_email, valid_password)
         WebDriverWait(self.driver, 10, 0.5).until(ec.url_to_be, main_url)
-        assert log_in.is_logout_link_displayed()
-        log_in.logout()
+        my_account_page = MyAccountPage(self.driver)
+        assert my_account_page.is_logout_link_displayed()
+        my_account_page.logout()
         WebDriverWait(self.driver, 10, 0.5).until(ec.url_to_be, main_url)
         assert log_in.is_login_link_displayed()
 
