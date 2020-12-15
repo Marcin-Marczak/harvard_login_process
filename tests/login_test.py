@@ -57,3 +57,10 @@ class TestLogIn:
         log_in.login(blank_email, valid_password)
         self.driver.implicitly_wait(10)
         assert error_message == log_in.get_error_message_login_failed()
+
+    def test_07_log_in_failed_enter_valid_password_into_email_field_and_vice_versa(self):
+        log_in = LoginPage(self.driver)
+        log_in.open_page()
+        log_in.login(valid_password, valid_email)
+        self.driver.implicitly_wait(10)
+        assert error_message == log_in.get_error_message_login_failed()
